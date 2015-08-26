@@ -1,5 +1,6 @@
 package demo.services;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,8 +9,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Controller
+//@Scope("request")
+@Controller()
 public class ProductsService {
+
+    public ProductsService(){
+        System.out.println("---- ProductsService CONSTRUCTOR ----");
+    }
+
     // local cache for lately added products, cleaned when all products from database are fetched
     private static List<Product> products = new ArrayList<>();
 
